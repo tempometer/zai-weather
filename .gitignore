@@ -1,0 +1,9 @@
+# runtime artifacts (your own data stays local unless you choose to share)
+zai-heatmap.json
+weather.html
+
+__pycache__/
+*.pyc
+
+# local-only (identity guard lives here, uncommitted)
+hooks/
