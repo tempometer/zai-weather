@@ -167,7 +167,8 @@ def main():
     ap.add_argument("--out", default="weather.html")
     args = ap.parse_args()
     hm = json.loads(Path(args.inp).read_text(encoding="utf-8"))
-    Path(args.out).write_text(build(hm), encoding="utf-8", newline="\n")
+    with open(args.out, "w", encoding="utf-8", newline="\n") as fh:
+        fh.write(build(hm))
     print("OK: %s built from %s (%s)" % (args.out, args.inp, hm["generated"]))
 
 

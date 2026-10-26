@@ -167,8 +167,8 @@ def main():
         "quiet": quiet,
         "window_days": args.days,
     }
-    Path(args.out).write_text(
-        json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8", newline="\n")
+    with open(args.out, "w", encoding="utf-8", newline="\n") as fh:
+        fh.write(json.dumps(out, ensure_ascii=False, indent=1))
     print("OK: %s rebuilt at %s | live %s (%dok/%dfail) | quiet %s"
           % (args.out, out["generated"], out["live"]["verdict"],
              live_ok, live_fail, quiet))
